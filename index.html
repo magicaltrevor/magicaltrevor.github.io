@@ -1,1 +1,24 @@
-Hi there
+<!DOCTYPE html>
+<html>
+<script src='https://cdn.goinstant.net/v1/platform.min.js'></script>
+<script>
+  function onLoad() {
+    var url = 'http://goinstant.net/Magicaltrevor/mytestapp';
+    var platform = new goinstant.Platform(url);
+    platform.connect(function(err) {
+      if (err) {
+        console.log('Error connecting to GoInstant:', err);
+        return;
+      }
+      
+      console.log('Connected!');
+      var room = platform.room("github");
+      room.join(function(err, room) {
+        console.log('Joined room:', room);
+      });
+    });
+  }
+</script>
+<body onload="onLoad();">
+  
+</body>
